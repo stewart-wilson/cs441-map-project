@@ -12,7 +12,9 @@
 <script type="text/javascript" src="map.js"></script>
 <script type="text/javascript" src="zip98177.js"></script>
 <script type="text/javascript" src="wz_jsgraphics.js"></script>
+<script type="text/javascript" src="show_layer.js"></script>
 <script type="text/javascript" src="pie.js">
+
 
 <!-- Pie Graph script-By Balamurugan S http://www.sbmkpm.com/ //-->
 <!-- Script featured/ available at Dynamic Drive code: http://www.dynamicdrive.com //-->
@@ -77,10 +79,13 @@
         <div id="map_canvas"></div>
         
         <div class="info">
-                Number of people in Seattle households
+                <a onclick="ReverseContentDisplay('pieCanvas'); return true;" href="javascript:ReveseContentDisplay('pieCanvas')">[Pie Chart 1]</a>                 
+                <a onclick="ReverseContentDisplay('pieCanvas2'); return true;" href="javascript:ReveseContentDisplay('pieCanvas2')">[Pie Chart 2]</a>
                 <div class = "leftSide"></div>
                 <div class = "rightSide">
-                	<div id="pieCanvas" style="overflow: auto; position:relative;height:350px;width:380px;"></div>
+                	<div id="pieCanvas" style="display: none; overflow: auto; position:relative;height:350px;width:380px;">Number of People in Seattle Households</div>
+                	<div id="pieCanvas2" style="display: none; overflow: auto; position:relative;height:350px;width:380px;">Number of People</div>
+
                 	<script type="text/javascript">
 						var p = new pie();
 	
@@ -88,7 +93,16 @@
 						p.add("6 people",111);
 						p.add("1 person",1197);
 						p.add("2-3 people",3611);
-						p.render("pieCanvas", "Pie Graph");
+						p.render("pieCanvas", "Number of people in Seattle households");
+					</script>
+					<script type="text/javascript">
+						var p = new pie();
+	
+						p.add("4-5 people",1324);
+						p.add("6 people",111);
+						p.add("1 person",1197);
+						p.add("2-3 people",3611);
+						p.render("pieCanvas2", "Number of people in Seattle households");
 					</script>
 				</div>
 				
