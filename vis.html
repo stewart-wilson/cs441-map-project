@@ -8,6 +8,9 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="map.js"></script>
 <script type="text/javascript" src="zip98177.js"></script>
+<script type="text/javascript" src="pie.js"></script>
+<script type="text/javascript" src="wz_graphics"></script>
+
 
 <style type="text/css">
    html { height: 100% }
@@ -68,8 +71,14 @@
         <div class="info">
                 Education Data for 99177 from 2000 Census
                 <div class = "leftSide"></div>
-                <div class = "rightSide"></div>
-                <script type="text/javascript" src="population.js"></script>
+                <div class = "rightSide">
+                	<div id="pie_canvas"></div>
+                </div>
+                <script type="text/javascript" src="pie.js">var p = new pie();
+					p.add("title1",value1);
+					p.add("title2",value2);
+
+					p.render("pie_canvas", "graph title");</script>
 
         </div>
   </div>
