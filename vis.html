@@ -1,3 +1,6 @@
+<!-- graph code begins here-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +11,13 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="map.js"></script>
 <script type="text/javascript" src="zip98177.js"></script>
-<script type="text/javascript" src="pie.js"></script>
-<script type="text/javascript" src="wz_graphics"></script>
+<script type="text/javascript" src="wz_jsgraphics.js"></script>
+<script type="text/javascript" src="pie.js">
+
+<!-- Pie Graph script-By Balamurugan S http://www.sbmkpm.com/ //-->
+<!-- Script featured/ available at Dynamic Drive code: http://www.dynamicdrive.com //-->
+
+</script>
 
 
 <style type="text/css">
@@ -55,7 +63,7 @@
    }
    
    .rightSide div {
-        width: 150px;
+        width: 120px;
         float: right;
    }
    
@@ -69,19 +77,24 @@
         <div id="map_canvas"></div>
         
         <div class="info">
-                Education Data for 99177 from 2000 Census
+                Number of people in Seattle households
                 <div class = "leftSide"></div>
                 <div class = "rightSide">
-                	<div id="pie_canvas"></div>
-                </div>
-                <script type="text/javascript" src="pie.js">var p = new pie();
-					p.add("title1",value1);
-					p.add("title2",value2);
-
-					p.render("pie_canvas", "graph title");</script>
-
+                	<div id="pieCanvas" style="overflow: auto; position:relative;height:350px;width:380px;"></div>
+                	<script type="text/javascript">
+						var p = new pie();
+	
+						p.add("4-5 people",1324);
+						p.add("6 people",111);
+						p.add("1 person",1197);
+						p.add("2-3 people",3611);
+						p.render("pieCanvas", "Pie Graph");
+					</script>
+				</div>
+				
         </div>
   </div>
-
 </body>
 </html>
+
+<!-- graph code ends here-->
