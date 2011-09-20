@@ -1,6 +1,3 @@
-<!-- graph code begins here-->
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +62,6 @@
    }
    
    .rightSide div {
-        width: 120px;
         float: right;
    }
    
@@ -79,14 +75,14 @@
         <div id="map_canvas"></div>
         
         <div class="info">
-                <a onclick="ReverseContentDisplay('pieCanvas'); return true;" href="javascript:ReveseContentDisplay('pieCanvas')">[Pie Chart 1]</a>                 
-                <a onclick="ReverseContentDisplay('pieCanvas2'); return true;" href="javascript:ReveseContentDisplay('pieCanvas2')">[Pie Chart 2]</a>
-                <div class = "leftSide"></div>
+                <a onclick="ReverseContentDisplay('pieCanvas'); return true;" href="javascript:ReveseContentDisplay('pieCanvas')">[Pie Chart]</a>                 
+                <a onclick="ReverseContentDisplay('barCanvas'); return true;" href="javascript:ReveseContentDisplay('barCanvas2')">[Bar Chart]</a>
                 <div class = "rightSide">
-                	<div id="pieCanvas" style="display: none; overflow: auto; position:relative;height:350px;width:380px;">Number of People in Seattle Households</div>
-                	<div id="pieCanvas2" style="display: none; overflow: auto; position:relative;height:350px;width:380px;">Number of People</div>
-
-                	<script type="text/javascript">
+                	<div id="pieCanvas" style="display: none; overflow: auto; position:relative;height:350px;width:390px;">Number of People in Seattle Households</div>
+                	<div id="barCanvas" style="display: none; overflow: auto; position:relative;height:350px;width:390px;"><script type="text/javascript" src="population.js"></script></div>
+				</div>
+				
+				<script type="text/javascript">
 						var p = new pie();
 	
 						p.add("4-5 people",1324);
@@ -94,21 +90,9 @@
 						p.add("1 person",1197);
 						p.add("2-3 people",3611);
 						p.render("pieCanvas", "Number of people in Seattle households");
-					</script>
-					<script type="text/javascript">
-						var p = new pie();
-	
-						p.add("4-5 people",1324);
-						p.add("6 people",111);
-						p.add("1 person",1197);
-						p.add("2-3 people",3611);
-						p.render("pieCanvas2", "Number of people in Seattle households");
-					</script>
-				</div>
-				
+				</script>
         </div>
   </div>
 </body>
 </html>
 
-<!-- graph code ends here-->
