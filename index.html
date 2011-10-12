@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>Visualisation Prototype</title>
+<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.29.6"></script>
+<script type="text/javascript" src="http://mbostock.github.com/d3/d3.csv.js?1.29.6"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="map.js"></script>
+
+<script type="text/javascript" src="wz_jsgraphics.js"></script>
+<script type="text/javascript" src="show_layer.js"></script>
+<script type="text/javascript" src="pie.js"></script>
+<script type="text/javascript" src="zips/zips.js"></script>
+
+
+<!-- Pie Graph script-By Balamurugan S http://www.sbmkpm.com/ //-->
+<!-- Script featured/ available at Dynamic Drive code: http://www.dynamicdrive.com //-->
+
+</script>
+
+
+<style type="text/css">
+   html { height: 100% }
+   body { height: 100%; margin: 0; padding: 0; clear: both; }
+   h1 { text-align: center;}
+
+   #wrap{ height: 100%; width: 1100px; margin: 0 auto}
+
+   #map_canvas {
+        float: left;  
+    	width: 600px;
+	    height: 600px;
+   }
+     
+   .info {
+        float: right;  
+    	width: 420px;
+    	height:100%;
+        margin-left: 50px; 
+   }
+     
+   .label div {
+     padding: 1px;
+     margin-right: 20px;
+     margin: 1px;
+        font-size: 10pt;
+   }
+      
+   .bar div {
+     background-color: red;
+     text-align: right;
+     padding: 1px;
+     margin: 1px;
+     color: white;
+     font-size: 10pt;
+     clear: both;
+   }   
+   
+   .leftSide div {
+        width: 500px;
+        float: left;
+   }
+   
+   .rightSide div {
+        float: right;
+   }
+   
+   #data {
+   		width: 400px;
+   		height 200px;
+   }
+   #data_select {
+   		margin-top: 400px;
+   		width: 400px;
+   		height 50px;
+   }
+   #data_wrap {
+   		text-align: left;
+   }
+   
+</style>
+</head>
+
+<body onload="initialize()">
+  <h1>Seattle, WA 98177</h1>
+
+  <div id="wrap">
+        <div id="title"></div>
+        <div id="map_canvas"></div>
+        
+        <div class="rightSide">
+        	<div id="data_wrap">
+        		<select name="zip" onchange="ReverseContentDisplay('pieCanvas'); return true;">
+        			<option selected value="all">All</option>
+  					<option value="98177">98177</option>
+  					<option value="98117">98117</option>
+				</select>
+        		<div id="data">
+        			<div id="pieCanvas" style="display: none; overflow: auto; position:relative;height:350px;width:390px;">Number of People in Seattle Households</div></div>
+        		</div>
+        		<div id="data_select">
+        			<input type="radio" name="group1" value="Admitted"> Admitted
+					<input type="radio" name="group1" value="Enrolled" checked> Enrolled<br>
+					
+				</div>
+                                 
+
+				<script type="text/javascript">
+						var p = new pie();
+	
+						p.add("4-5 people",1324);
+						p.add("6 people",111);
+						p.add("1 person",1197);
+						p.add("2-3 people",3611);
+						p.render("pieCanvas", "Number of people in Seattle households");
+				</script>
+        </div>
+  </div>
+</body>
+</html>
+
