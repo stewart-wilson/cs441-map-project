@@ -1,0 +1,65 @@
+// This file was automatically generated on 2011-10-15 14:50. 
+// DO NOT EDIT. Use zipCodeMaker.py to generate. 
+
+
+function constructZipCodeArray() 
+{ 
+
+    var zipCoords = [ 
+         new google.maps.LatLng(       0.487902461677968E+02,      -0.122664420295570E+03),
+         new google.maps.LatLng(       0.487879390000000E+02,      -0.122655281000000E+03),
+         new google.maps.LatLng(       0.487894440000000E+02,      -0.122645425000000E+03),
+         new google.maps.LatLng(       0.487902200000000E+02,      -0.122643936000000E+03),
+         new google.maps.LatLng(       0.487923440000000E+02,      -0.122642516000000E+03),
+         new google.maps.LatLng(       0.487937360000000E+02,      -0.122640372000000E+03),
+         new google.maps.LatLng(       0.487934570000000E+02,      -0.122604947000000E+03),
+         new google.maps.LatLng(       0.487913810000000E+02,      -0.122590526000000E+03),
+         new google.maps.LatLng(       0.487913810000000E+02,      -0.122590526000000E+03),
+         new google.maps.LatLng(       0.487853660000000E+02,      -0.122588634000000E+03),
+         new google.maps.LatLng(       0.487837000000000E+02,      -0.122588612000000E+03),
+         new google.maps.LatLng(       0.487819020000000E+02,      -0.122589723000000E+03),
+         new google.maps.LatLng(       0.487768190000000E+02,      -0.122597887000000E+03),
+         new google.maps.LatLng(       0.487735360000000E+02,      -0.122600202000000E+03),
+         new google.maps.LatLng(       0.487679560000000E+02,      -0.122599997000000E+03),
+         new google.maps.LatLng(       0.487591430000000E+02,      -0.122606787000000E+03),
+         new google.maps.LatLng(       0.487591430000000E+02,      -0.122606787000000E+03),
+         new google.maps.LatLng(       0.487446600000000E+02,      -0.122627808000000E+03),
+         new google.maps.LatLng(       0.487433909025896E+02,      -0.122629131819439E+03),
+         new google.maps.LatLng(       0.487357080000000E+02,      -0.122637146000000E+03),
+         new google.maps.LatLng(       0.487324860000000E+02,      -0.122638082000000E+03),
+         new google.maps.LatLng(       0.487209300000000E+02,      -0.122626287000000E+03),
+         new google.maps.LatLng(       0.487189475828086E+02,      -0.122621750708578E+03),
+         new google.maps.LatLng(       0.487182304791220E+02,      -0.122620109786921E+03),
+         new google.maps.LatLng(       0.487174217480080E+02,      -0.122618259197634E+03),
+         new google.maps.LatLng(       0.487149320000000E+02,      -0.122612562000000E+03),
+         new google.maps.LatLng(       0.487010660000000E+02,      -0.122605733000000E+03),
+         new google.maps.LatLng(       0.486985560000000E+02,      -0.122606105000000E+03),
+         new google.maps.LatLng(       0.486938390000000E+02,      -0.122615169000000E+03),
+         new google.maps.LatLng(       0.486936588414672E+02,      -0.122620128002103E+03),
+         new google.maps.LatLng(       0.486936512194216E+02,      -0.122620337804768E+03),
+         new google.maps.LatLng(       0.486966246638030E+02,      -0.122630421655705E+03),
+         new google.maps.LatLng(       0.487011944800662E+02,      -0.122636809012756E+03),
+         new google.maps.LatLng(       0.487080013122882E+02,      -0.122646323108134E+03),
+         new google.maps.LatLng(       0.487121828674754E+02,      -0.122650849534072E+03),
+         new google.maps.LatLng(       0.487324471666920E+02,      -0.122672785116762E+03),
+         new google.maps.LatLng(       0.487326398362136E+02,      -0.122672993676564E+03),
+         new google.maps.LatLng(       0.487330816598765E+02,      -0.122673471939315E+03),
+         new google.maps.LatLng(       0.487335386343267E+02,      -0.122673278036903E+03),
+         new google.maps.LatLng(       0.487484450000000E+02,      -0.122666953000000E+03),
+         new google.maps.LatLng(       0.487531796901012E+02,      -0.122661939394858E+03),
+         new google.maps.LatLng(       0.487539620000000E+02,      -0.122661111000000E+03),
+         new google.maps.LatLng(       0.487554708837537E+02,      -0.122660081681616E+03),
+         new google.maps.LatLng(       0.487577184551672E+02,      -0.122658548451127E+03),
+         new google.maps.LatLng(       0.487687734216749E+02,      -0.122651007061517E+03),
+         new google.maps.LatLng(       0.487739980000000E+02,      -0.122647443000000E+03),
+         new google.maps.LatLng(       0.487815380000000E+02,      -0.122645743000000E+03),
+         new google.maps.LatLng(       0.487845629671387E+02,      -0.122646643609278E+03),
+         new google.maps.LatLng(       0.487850110000000E+02,      -0.122646777000000E+03),
+         new google.maps.LatLng(       0.487850093422258E+02,      -0.122647161879908E+03),
+         new google.maps.LatLng(       0.487849690000000E+02,      -0.122656528000000E+03),
+         new google.maps.LatLng(       0.487865230000000E+02,      -0.122659708000000E+03),
+         new google.maps.LatLng(       0.487902461677968E+02,      -0.122664420295570E+03),
+    ];
+
+    return zipCoords
+}

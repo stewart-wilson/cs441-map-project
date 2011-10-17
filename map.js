@@ -1,14 +1,12 @@
 // Name: map.js
 // Description: A script to construct a google map centered
-// at Salem, Oregon in the map_canvas container of an html
+// in Washington state in the map_canvas container of an html
 // document.
-// Written by: Tanya L. Crenshaw
+// Written by: Stewart Wilson
 
 function initialize(){
 
-        // Initialize map information
-	var washZipCodes = ['98295', '98177'];
-        // The center point of the map is Salem, OR
+        // The center point of the map is Seattle, WA
     var latlng = new google.maps.LatLng(0.477436023333333E+02,-0.122369343004934E+03);
 
     var myOptions = {
@@ -22,36 +20,40 @@ function initialize(){
         myOptions);
            
     var zipCodeAreas = new Array();
-    // Create a marker at the initial center position of the map.
-    // The "title" is what is displayed when the user hovers over 
-    // the marker.  This is called a Google Maps "tooltip".
-        var marker = new google.maps.Marker({
-      position: latlng, 
-      map: map, 
-      title:"Washington"
-   });
+    
 
         // Create the polygon that outlines zipcode 98177
         // Call the function constructZipCodeArray() to 
         // get the path of geopgraphical points.
-        for(i = 0; i < 2; i++)
+        for(i = 0; i < 961; i++)
         {
+        zipdata(washZipCodes[i]);	
 			zipCodeAreas[i] = new google.maps.Polygon({
-        paths: zips[washZipCodes[i]],
+        paths: zips[i+1],
         strokeColor: "#a020f0",
         strokeOpacity: 0.35,
         strokeWeight: 2,
         fillColor: "#a020f0",
         fillOpacity: 0.35});
 		
-		                  
+		j = i;
+		//adds an event listener to each of the zip codes that have been created         
         google.maps.event.addListener(zipCodeAreas[i], 'click', function(event) {       
-                        console.log("Hi " + washZipCodes[i] + ' ' + "!"); 
+                        console.log("Hi " + washZipCodes[j] + ' ' + "!"); 
                         
         }); 
-		
+		//sets the zip code polygons to the map
 		zipCodeAreas[i].setMap(map);
 		
 		}
     
+}
+
+function zipdata(zipcode){
+	var percent;
+	d3.csv("auto/" + zipcode + "/percentage.csv", function(data) {
+		data.percent = d3.round(data.percent,3);
+		percent = data.percent;
+		
+	});
 }
