@@ -22,24 +22,27 @@ function initialize(){
     var zipCodeAreas = new Array();
     
 
-        // Create the polygon that outlines zipcode 98177
-        // Call the function constructZipCodeArray() to 
-        // get the path of geopgraphical points.
+        // Create the polygon that outlines all the zipcodes in washington
         for(i = 0; i < 961; i++)
         {
-        zipdata(washZipCodes[i]);	
+        	var percent = .35;
+        	//d3.csv("auto/" + washZipCodes[i] + "/percentage.csv", function(csv) {
+		 	//percent = d3.nest()
+			//.key(function(d) { return d.percent; })
+			//.map(csv);
+			//});	
 			zipCodeAreas[i] = new google.maps.Polygon({
         paths: zips[i+1],
         strokeColor: "#a020f0",
-        strokeOpacity: 0.35,
+        strokeOpacity: 1,
         strokeWeight: 2,
         fillColor: "#a020f0",
-        fillOpacity: 0.35});
+        fillOpacity: percent});
 		
-		j = i;
+		
 		//adds an event listener to each of the zip codes that have been created         
         google.maps.event.addListener(zipCodeAreas[i], 'click', function(event) {       
-                        console.log("Hi " + washZipCodes[j] + ' ' + "!"); 
+                        console.log("Hi!"); 
                         
         }); 
 		//sets the zip code polygons to the map
@@ -47,13 +50,4 @@ function initialize(){
 		
 		}
     
-}
-
-function zipdata(zipcode){
-	var percent;
-	d3.csv("auto/" + zipcode + "/percentage.csv", function(data) {
-		data.percent = d3.round(data.percent,3);
-		percent = data.percent;
-		
-	});
 }
