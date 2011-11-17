@@ -1,0 +1,60 @@
+html { height: 100% }
+   
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+h1 {
+	text-align: center;
+}
+#wrap {
+	height: 100%;
+	width: 1100px;
+	margin: 0 auto
+}
+#map_canvas {
+	float: left;
+	width: 600px;
+	height: 600px;
+}
+.info {
+	float: right;
+	width: 420px;
+	height: 100%;
+	margin-left: 50px;
+}
+.label div {
+	padding: 1px;
+	margin-right: 20px;
+	margin: 1px;
+	font-size: 10pt;
+}
+.bar div {
+	background-color: red;
+	text-align: right;
+	padding: 1px;
+	margin: 1px;
+	color: white;
+	font-size: 10pt;
+	clear: both;
+}
+.leftSide div {
+	width: 500px;
+	float: left;
+}
+.rightSide div {
+	float: right;
+}
+#data {
+	width: 400px;height 400px;
+}
+#data_select {
+	position: relative;
+	width: 400px;height 50px;
+}
+#data_wrap {
+	overflow: auto;
+	text-align: left;
+}
