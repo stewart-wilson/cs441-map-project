@@ -7,6 +7,7 @@
 <script type="text/javascript" src="http://mbostock.github.com/d3/d3.csv.js?1.29.6"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="zipmap.js"></script>
+<script type="text/javascript" src="zips/datazips.js"></script>
 <script type="text/javascript" src="zips/zipcodes.js"></script>
 <script type="text/javascript" src="zips/allzips.js"></script>
 <link rel="stylesheet" href="zipmap.css">
@@ -17,7 +18,7 @@
 <!-- Comment made by new branch//-->
 </head>
 
-<body onload="initialize()">
+<body onload="initialize(false,false)">
   <h1>Washington State</h1>
 
   <div id="wrap">
@@ -26,8 +27,14 @@
         
     <div class="rightSide">
        	<div id="data_wrap">
-        		
+        <h3>GPA by year</h3>		
         </div>
+        <!-- Creates two radio buttons to cycle between two data sets -->
+        <div id="data_select">
+        	<input type="radio" name="group1" value="Admitted" onclick="initialize(false,true)"checked> Admitted
+			<input type="radio" name="group1" value="Enrolled" onclick="initialize(true,true)"> Enrolled <br>
+					
+		</div>
   	</div>
   </div>
 </body>

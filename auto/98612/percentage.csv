@@ -1,2 +1,5 @@
-"","item","Applications","Inquiries","percent"
-"1",1,4,4,1
+"","item","Applications","Enrolled","Inquiries","applyPercent","enrollPercent","gpa","years"
+"1",1,7,0,9,0.777777777777778,0,NA,2007
+"2",2,7,0,9,0.777777777777778,0,NA,2008
+"3",3,7,0,9,0.777777777777778,0,3.7,2009
+"4",4,7,0,9,0.777777777777778,0,3.515,2010

@@ -20,22 +20,15 @@ function initialize(){
         myOptions);
            
     var zipCodeAreas = new Array();
-    
-
+    p = [];
+	
         // Create the polygon that outlines all the zipcodes in washington
         for(i = 1; i < 962; i++)
         {
         	//remove zip codes that map out bodies of water and disrupt the rest of the map
         	if(i != 263 && i != 683 && i != 84 && i != 24 && i != 509 && i != 506 && i != 717 && i != 821){
-        		var percent = .35;
-        		p = []
-        		d3.csv("auto/98001/percentage.csv", function(data) {
-		 			data.map(function(d) {
-		 				let percent = d.percent;
-           				p.push(d.percent);
-            		});
-		 		});	
-				console.log(percent)
+        	var percent = .35;	
+				
 				zipCodeAreas[i] = new google.maps.Polygon({
         	paths: zips[i],
         	strokeColor: "#a020f0",

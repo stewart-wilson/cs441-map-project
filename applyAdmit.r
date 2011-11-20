@@ -2,9 +2,13 @@ applyAdmit <- function(state){
 
 #initialize result vectors
 
+means = NULL; # the mean GPA for a particular year
 totalApplicants = NULL; #number of students applied 
 totalInquire = NULL; #number of students accepted 
+totalEnrolled = NULL;
 applicantsToAccepted = NULL; #ratio of inquiry to apply
+years = NULL; #the set of years
+inquiryToEnrolled = NULL;
 
 allzips = NULL; #initialize all zip codes to be null. 
 
@@ -21,8 +25,8 @@ for (i in filenames) {
 u <- read.csv(i, header = TRUE, stringsAsFactors=FALSE);
 u$dataset <- i;
 
-# obtain the year
-#years <- c(years, u$EntryYear[1]);
+#obtain the year
+years <- c(years, u$EntryYear[1]);
 
 admissionsData <- rbind(admissionsData, u);
 }
@@ -41,6 +45,7 @@ allzips <- unique(allzips);
 # for each zipcode, calculate the average GPA for each year.
 for (j in allzips) {
 
+for(i in years){
 #goes through all id's and gets the amount of inquries for each zip code and stores it in totalInquire.
 studentIDs <- admissionsData$UP_ID[admissionsData$Zip == j, drop=TRUE];
 studentIDs <- as.numeric(as.character(studentIDs));
@@ -52,11 +57,28 @@ appliedStudents <- as.numeric(as.character(appliedStudents));
 appliedStudents <- appliedStudents[!is.na(appliedStudents)];
 totalApplicants <- c(totalApplicants, length(appliedStudents));
 
+#goes through all the id's and get all the inquries who also applied to the school and stores it in total Applicants. 
+enrolledStudents <- admissionsData$UP_ID[admissionsData$Zip == j & admissionsData$Enrolled=="Y", drop=TRUE];
+enrolledStudents <- as.numeric(as.character(enrolledStudents));
+enrolledStudents <- enrolledStudents[!is.na(enrolledStudents)];
+totalEnrolled <- c(totalEnrolled, length(enrolledStudents));
+
+gpaScores<-admissionsData$HS_GPA[admissionsData$EntryYear == i & admissionsData$Zip == j, drop=TRUE];
+gpaScores <- as.numeric(as.character(gpaScores));
+gpaScores <- gpaScores[!is.na(gpaScores)];
+
+means <- c(means, mean(gpaScores));
+}
+
 #calculates the total applicant over total inquiry ratio. 
 applicantsToAccepted <- c(applicantsToAccepted, (totalApplicants/totalInquire));
 
+inquiryToEnrolled <- c(inquiryToEnrolled, (totalEnrolled/totalInquire));
+
+
+
 #creates a data frame to store the results in
-result <- (data.frame(item = c(1:n), Applications = totalApplicants, Inquiries=totalInquire,percent=    applicantsToAccepted));
+result <- (data.frame(item = c(1:n), Applications = totalApplicants, Inquiries=totalInquire,applyPercent= applicantsToAccepted,enrollPercent= inquiryToEnrolled,gpa=means,years=years));
 
 # construct the pathname in which to store the results
 path <- paste("auto/", j, sep="");
@@ -70,7 +92,13 @@ write.csv(result,filename);
 length(applicantsToAccepted) <- 0;
 length(totalApplicants) <- 0;
 length(totalInquire) <- 0;
+length(totalEnrolled) <- 0;
 length(result) <- 0;
+length(inquiryToEnrolled)<-0;
+length(means)<-0;
+
+
+
 
 }
 return(result);
