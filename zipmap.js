@@ -11,12 +11,16 @@ function initialize(enroll,reload){
 	zipLoc = zips[zipName];
 	var zip = washZipCodes[zipName-1];
     // The center point of the map is the first point of the boundary array
+    console.log(zipLoc[0]);
     var latlng = new google.maps.LatLng(zipLoc[0].Pa,zipLoc[0].Qa);
 	if(dataZips.indexOf(zip) == -1)
 	{
+		//if there is no csv file for the zip set the opacity to 0
 		p = 0;
 	}
+	// if there is a data file for the zip use it to make the map
 	else{
+		//creates the bar graph
 		drawCityData(zip,reload)
 		d3.csv("auto/" +zip+ "/percentage.csv", function(data) {
 					
